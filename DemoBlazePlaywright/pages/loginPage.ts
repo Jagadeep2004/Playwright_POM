@@ -5,12 +5,15 @@ export class LoginPage {
     readonly username: Locator;
     readonly password: Locator;
     readonly login_button: Locator;
+    readonly welcomeUser: Locator;
 
     constructor(page: Page) {
         this.page = page;
-        this.username = page.locator("//*[@id='loginusername']");
-        this.password = page.locator("//*[@id='loginpassword']");
-        this.login_button = page.locator("//*[@id='logInModal']/div/div/div[3]/button[2]");
+
+        this.username = page.locator("#loginusername");
+        this.password = page.locator("#loginpassword");
+        this.login_button = page.locator("//button[text()='Log in']");
+        this.welcomeUser = page.locator("#nameofuser");
     }
 
     async login(username: string, password: string) {
